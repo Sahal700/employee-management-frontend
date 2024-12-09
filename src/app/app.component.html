@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="mt-5 text-center">Employee Management</h1>
+  <h1 class="mt-5 text-center mb-3">Employee Management</h1>
   <div class="d-flex">
     <div><button class="btn border me-1" (click)="filter('')">All</button> <button class="btn border me-1" (click)="filter('Active')">Active</button> <button class="btn border" (click)="filter('Inactive')">Inactive</button></div>
     <button class="btn btn-primary ms-auto" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Employee</button>
@@ -24,7 +24,7 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" >Clear</button>
+            <button type="button" class="btn btn-secondary" (click)="handleclr()">Clear</button>
             @if(edit){
               <button type="button" class="btn btn-primary" (click)="handleSave()">Save</button>
             }@else {
@@ -52,8 +52,8 @@
           <td>{{item.name}}</td>
           <td>{{item.age}}</td>
           <td>{{item.email}}</td>
-          <td>{{item.status}}</td>
-          <td><button class="btn btn-warning me-2"  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="handleEdit(item.name,item.age,item.email,item.status,item.id)">Edit<i class="ms-1 fa-solid fa-pen-to-square"></i></button><button class="btn btn-danger" (click)="handleDelete(item.id)">Delete<i class="ms-1 fa-solid fa-trash-can"></i></button></td>
+          <td><span class="` ${{item.status=='Active'?' bg-success ':' bg-danger '}} text-light px-2 rounded-pill pb-1 `">{{item.status}}</span></td>
+          <td class="d-flex"><button class="btn btn-warning me-2"  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="handleEdit(item.name,item.age,item.email,item.status,item.id)"><span class="me-1 d-none d-md-inline">Edit</span><i class=" fa-solid fa-pen-to-square"></i></button><button class="btn btn-danger" (click)="handleDelete(item.id)"><span class="me-1 d-none d-md-inline">Delete</span><i class=" fa-solid fa-trash-can"></i></button></td>
         </tr>}
       </tbody>
     </table>
