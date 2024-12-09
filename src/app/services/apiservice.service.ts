@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiserviceService {
-  serverUrl:string = 'http://localhost:4000'
+  serverUrl:string = 'https://employee-management-server-68dt.onrender.com'
   constructor(private http : HttpClient) { }
   addEmployee(reqBody:any){
     return this.http.post(`${this.serverUrl}/employee`,reqBody)
